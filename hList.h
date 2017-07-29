@@ -63,6 +63,7 @@ private:
 	int size;
 public:
 	hList() :parent(new E()), size(0), tail(new E(D(INTMAX, INTMAX))) {};
+	~hList() { delete tail; delete parent; }
 	int Size() { return size; }
 	void Clear() { delete parent; parent = new E(); size = 0; }
 	D& operator[](int n) {
