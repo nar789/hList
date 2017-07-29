@@ -93,8 +93,9 @@ public:
 		return os;
 	}
 	hList& operator--() {
-		parent->d = parent->next->d;
+		E* tmp = parent->next;
 		parent->next = parent->next->next;
+		delete tmp;
 		size--;
 		return *this;
 	}
@@ -105,7 +106,9 @@ public:
 			prev = itr;
 			itr = itr->next;
 		}
+		E* tmp = prev->next;
 		prev->next = NULL;
+		delete tmp;
 		size--;
 		return *this;
 	}
