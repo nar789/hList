@@ -64,7 +64,7 @@ private:
 public:
 	hList() :parent(new E()), size(0), tail(new E(D(INTMAX, INTMAX))) {};
 	int Size() { return size; }
-	void Clear() { parent = new E(); size = 0; }
+	void Clear() { delete parent; parent = new E(); size = 0; }
 	D& operator[](int n) {
 		if (n + 1 > size) {
 			cout << "overflow." << endl;
